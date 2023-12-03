@@ -1,0 +1,86 @@
+*{font-family: sans-serif;}
+
+.cardWrapper{
+    position: relative;
+    height: 70vh;
+}
+
+.card-hover {
+    width: 50%;
+    min-height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 48px 32px;
+    text-align: center;
+    color: #000;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-title{
+    font-size: 24px;
+}
+
+.card-button{
+    background: #000;
+    color: #fff;
+    padding: 16px 24px;
+    font-size: 16px;
+    border: none;
+}
+
+.card-hover::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #aaaaaa48;
+    z-index: 0;
+}
+
+.card-hover::before{
+    content: '';
+    background-image: url(/pexels-dominika-roseclay-894751.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease-in;
+}
+
+.content{
+    transform: translateY(calc(100% - 3rem));
+    transition: all 0.3s ease-in;
+    z-index: 2;
+}
+
+.card-hover:hover .content{
+    transform: translateY(0);
+}
+
+.card-hover:hover::before{
+    transform: scale(1.1);
+    filter: blur(2px);
+} 
+
+.content .card-text,
+.content .card-button{
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+
+}
+
+.card-hover:hover .content .card-text,
+.card-hover:hover .content .card-button{
+    opacity: 1;
+}
